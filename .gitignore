@@ -1,9 +1,11 @@
+.gitignore
 .venv
 .vscode
 build
 dist
 *.spec
 *.pyo
+__pycache__
 build.bat
 games.json
 test.py

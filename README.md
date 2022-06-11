@@ -1,4 +1,4 @@
-# GamesSysTray
+# GamesSysTray (FRENCH ONLY!)
 ## Fonctionnalités
 
 ### L'îcone dans le "systray" de Windows

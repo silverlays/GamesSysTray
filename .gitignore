@@ -1,0 +1,9 @@
+.venv
+.vscode
+build
+dist
+*.spec
+*.pyo
+build.bat
+games.json
+test.py

@@ -1,0 +1,7 @@
+QWidget {
+  background-color: #222;
+  color: #f0f0f0;
+}
+QMenu::item:selected {
+  background-color: #ff3c3c;
+}

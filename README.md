@@ -1,4 +1,7 @@
 # GamesSysTray (FRENCH ONLY!)
+
+![Preview screenshot](https://i.imgur.com/W2uUEKI.png)
+
 ## Fonctionnalités
 
 ### L'icône dans le "systray" de Windows

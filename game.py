@@ -19,8 +19,9 @@ class Game():
     if os.path.exists(self.path):
       gssPath = os.path.abspath(os.curdir)
       exePath = os.path.dirname(self.path)
+      exeName = os.path.basename(self.path)
       os.chdir(exePath)
-      os.system(f'"{self.path}" {self.arguments}')
+      subprocess.Popen(executable=exeName, args=self.arguments)
       os.chdir(gssPath)
 
 

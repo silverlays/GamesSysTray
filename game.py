@@ -17,10 +17,11 @@ class Game():
 
   def launch(self):
     if os.path.exists(self.path):
-      path = os.path.dirname(self.path)
-      exe = os.path.basename(self.path)
-      os.chdir(path)
-      subprocess.Popen(executable=exe, args=self.arguments)
+      gssPath = os.path.abspath(os.curdir)
+      exePath = os.path.dirname(self.path)
+      os.chdir(exePath)
+      os.system(f'"{self.path}" {self.arguments}')
+      os.chdir(gssPath)
 
 
   def jsonOutput(self):

@@ -1,8 +1,6 @@
 import os
 from PySide6.QtCore import *
-from PySide6.QtGui import *
-from PySide6.QtGui import QDragEnterEvent
-from PySide6.QtWidgets import *
+from PySide6.QtWidgets import QWidget, QLineEdit, QPushButton, QHBoxLayout, QFormLayout, QFileDialog, QMessageBox
 from games_controller import Game
 from icons import Icons
 

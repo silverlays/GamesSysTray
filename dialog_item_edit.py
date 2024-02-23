@@ -65,7 +65,7 @@ class ItemEditDialog(QWidget):
   
   def _browseClicked(self):
     file = QFileDialog.getOpenFileName(self.parent(), dir=os.path.abspath(self.game_path_editbox.text()), filter='Exécutables (*.exe)')[0]
-    self.game_path_editbox.setText(file.replace('/', '\\'))
+    if file != "": self.game_path_editbox.setText(file.replace('/', '\\'))
 
 
   def _saveClicked(self):

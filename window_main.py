@@ -1,6 +1,6 @@
 import os
 import sys
-import pylnk3
+import LnkParse3
 
 from PySide6.QtCore import *
 from PySide6.QtGui import QDragEnterEvent, QDropEvent, QAction, QCloseEvent, QBrush
@@ -120,9 +120,11 @@ class MainWindow(QMainWindow):
     if mime_data.hasUrls():
       link_path = mime_data.urls()[0].toLocalFile()
       if link_path.endswith(".lnk"):
-        lnk_parsed = pylnk3.parse(link_path)
+        with open(link_path, "rb") as fp: lnk_parsed = LnkParse3.lnk_file(fp)
         game_name = os.path.basename(link_path).removesuffix(".lnk")
-        self.game_added.emit(game_name, lnk_parsed.path, lnk_parsed.arguments or "")
+        full_path = lnk_parsed.info.local_base_path() + lnk_parsed.info.common_path_suffix()
+        full_args = lnk_parsed.string_data.command_line_arguments() or ""
+        self.game_added.emit(game_name, full_path, full_args)
 
 
   def getCurrentIndex(self) -> int:

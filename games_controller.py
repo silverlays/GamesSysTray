@@ -84,10 +84,11 @@ class GamesController(QObject):
       exeName = os.path.basename(game.path)
     try:
       os.chdir(exePath)
-      subprocess.Popen(executable=game.path, args=game.args)
+      print(os.path.abspath(os.path.curdir))
+      subprocess.Popen(executable=exeName, args=game.path)
       os.chdir(gssPath)
     except OSError as e:
       if e.errno == 22: # Elevation required
         os.system(f"\"{exeName}\" \"{game.args}\"")
     except Exception as e:
-      QMessageBox.critical(self, 'ERREUR', f'Une erreur est survenue:\n\n{e.args[1]}')
+      QMessageBox.critical(None, 'ERREUR', f'Une erreur est survenue:\n\n{e.args[1]}')

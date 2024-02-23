@@ -1,13 +1,14 @@
 import os
-from PyQt6.QtCore import *
-from PyQt6.QtGui import *
-from PyQt6.QtWidgets import *
-from game import Game
+from PySide6.QtCore import *
+from PySide6.QtGui import *
+from PySide6.QtGui import QDragEnterEvent
+from PySide6.QtWidgets import *
+from games_controller import Game
 from icons import Icons
 
 
-class ItemWindow(QWidget):
-  game: Game
+class ItemEditDialog(QWidget):
+  game: Game = None
 
 
   def __init__(self, parent: QWidget, game: Game = None) -> None:
@@ -22,10 +23,6 @@ class ItemWindow(QWidget):
     else:
       self.setWindowTitle('Ajout d\'un nouveau jeu')
     
-    self._setupUi()
-
-
-  def _setupUi(self):
     self.game_name_editbox = QLineEdit()
     if self.game: self.game_name_editbox.setText(self.game.name)
 
@@ -41,7 +38,7 @@ class ItemWindow(QWidget):
     self.game_path_layout.addWidget(self.game_path_browse)
 
     self.game_arguments_editbox = QLineEdit()
-    if self.game: self.game_arguments_editbox.setText(self.game.arguments)
+    if self.game: self.game_arguments_editbox.setText(self.game.args)
 
     self.save_button = QPushButton(Icons.saveIcon(), 'Sauvegarder')
     font = self.save_button.font()
@@ -77,14 +74,12 @@ class ItemWindow(QWidget):
         if self.game:
           self.game.name = self.game_name_editbox.text()
           self.game.path = self.game_path_editbox.text()
-          self.game.arguments = self.game_arguments_editbox.text()
+          self.game.args = self.game_arguments_editbox.text()
         else:
-          self.game = Game(Game.convertToDict(self.game_name_editbox.text(), self.game_path_editbox.text(), self.game_arguments_editbox.text()))
+          self.game = Game(self.game_name_editbox.text(), self.game_path_editbox.text(), self.game_arguments_editbox.text())
         self.close()
-        self.saveCompletedEvent()
       else:
         QMessageBox.critical(self, 'ERREUR', 'Le fichier n\'existe pas! Veuillez corriger et réessayer')
     else:
       QMessageBox.critical(self, 'ERREUR', 'Un nom et un chemin valide doivent être remplis avant de poursuivre.')
   
-  def saveCompletedEvent(self): pass # OVERRIDED BY CALLER

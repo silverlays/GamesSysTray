@@ -6,7 +6,7 @@ Une icône dans la "systray" de Windows qui affiche une liste de jeux et les lan
 
 ### L'interface de gestion (double-click sur l'îcone du systray)
 Avec l'interface de gestion, vous pouvez effectuer les opérations suivantes:
-* Ajouter un jeu manuellement (en faisant un clic droit dans une zone vierge)
-* Importer directement un jeu en utilisant son raccourci (sur le bureau par exemple) (en faisant un clic droit dans une zone vierge)
-* Modifier une entrée (nom, chemin et argument(s)) (en faisant un clic droit sur une îcone de jeu)
-* Supprimer une entrée (en faisant un clic droit sur une îcone de jeu)
+* Drag&Drop un raccourci (sur le bureau par exemple) directement dans la fenêtre pour ajouter un jeu rapidement.
+* Ajouter un jeu manuellement (via le menu contextuel)
+* Modifier une entrée (via le menu contextuel)
+* Supprimer une entrée (via le menu contextuel)

@@ -1,5 +1,5 @@
 import base64
-from PyQt6.QtGui import QPixmap, QIcon
+from PySide6.QtGui import QPixmap, QIcon
 
 
 class Icons():
